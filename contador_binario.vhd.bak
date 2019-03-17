@@ -1,5 +1,0 @@
--- Functional description of binary counter on VHDL 
--- https://www.youtube.com/watch?v=wTBzzTgm8-c
-
-library IEEE;
-use IEE.STD_LOGIC_1164.ALL;
