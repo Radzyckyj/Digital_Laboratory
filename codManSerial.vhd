@@ -85,17 +85,15 @@ architecture Structural of codManSerial is
 	
 		--> Calling the Clock Divider
 		
-		--> Problem with the divisor
-		
-			--! clock_divider: divisor_16666 port map(clock, enable, clock_divided); !--
+		clock_divider: divisor_16666 port map(clock, enable, clock_divided); 
 	
 		--> Calling the Shift Register
 		
-		shifte_register: shift_register port map(not(reset_n), clock, parallel_input, serial_aux);
+		shifte_register: shift_register port map(not(reset_n), clock_divided, parallel_input, serial_aux);
 	
 		--> Calling the Manchester Encoder
 		
-		manchester_encoder: Manchester_Serial_Encoder port map(serial_aux, clock, serial_output_manchester);
+		manchester_encoder: Manchester_Serial_Encoder port map(serial_aux, clock_divided, serial_output_manchester);
 	
 		--> Combinational Logic
 	
